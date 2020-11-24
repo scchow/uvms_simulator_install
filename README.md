@@ -83,7 +83,9 @@ You will be dropped into a shell as `developer@<container name>`
 
 8. Move into the uuv_ws workspace
 
-```cd uuv_ws```
+```
+cd uuv_ws
+```
 
 9. Enable ccache:
 ``` 
@@ -100,42 +102,62 @@ chmod +x install_moveit.bash
 
 11. Add sourcing the setup file to bashrc for convenience.
 
-```echo ‘source /home/developer/uuv_ws/devel/setup.bash’ >> ~/.bashrc```
+```
+echo ‘source /home/developer/uuv_ws/devel/setup.bash’ >> ~/.bashrc
+```
 
 
 12. In a new terminal window, create an image from the new container (that is now updated with MoveIt!’s dependencies 
 
-```docker commit -m "Installed MoveIt and OMPL Dependencies" <container_name>  dave_nvidia:v0 ```
+```
+docker commit -m "Installed MoveIt and OMPL Dependencies" <container_name>  dave_nvidia:v0 
+```
 
 13. Create a new container using our new image
 
-```./run.bash dave_nvidia:v0```
+```
+./run.bash dave_nvidia:v0
+```
 
 14. Source the catkin setup files so that roslaunch knows where to find your built packages:
 
-```source ~/uuv_ws/devel/setup.bash```
+```
+source ~/uuv_ws/devel/setup.bash
+```
 
 15. To run the demo [MoveIt! Tutorial](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html):
 
-```roslaunch panda_moveit_config demo.launch rviz_tutorial:=true```
+```
+roslaunch panda_moveit_config demo.launch rviz_tutorial:=true
+```
 
 Some Notes on Docker
 ---
 To list all containers (Including stopped containers):
-	``` docker container ps -a```
+
+	``` 
+    docker container ps -a
+    ```
 
 
 To delete stopped containers
-	``` docker rm $(docker ps -a -q) ```
+
+	```
+    docker rm $(docker ps -a -q)
+    ```
 
 
 IMPORTANT: The run.bash script mounts the `uuv_ws` folder into the image. Thus any changes you make to files within uuv_ws will be reflected both in the host and the docker container. Any other folders/files made outside the `uuv_ws` folder will be saved to only the docker container. **Docker containers are deleted (along with all files within the container excluding uuv_ws) if you close the container and run the “delete stopped containers” command above OR if you restart your computer.** 
 
 To save the state of a docker container, you must create a new image using the command
-	``` docker commit -m “YOUR MESSAGE HERE” <container name> <Repository Name>:<Tag> ```
+	``` 
+    docker commit -m “YOUR MESSAGE HERE” <container name> <Repository Name>:<Tag> 
+    ```
 
 For example:
-	``` docker commit -m “installed vim” 83123446d192 dave_nvidia:v2.0 ```
+	``` 
+    docker commit -m “installed vim” 83123446d192 dave_nvidia:v2.0 
+    ```
 
 Note that this applies to editing files outside of the `uuv_ws` folder AND installing any additional programs.
 
