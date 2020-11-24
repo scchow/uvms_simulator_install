@@ -43,7 +43,7 @@ Or install manually by following the instructions below:
 
 	     If you do NOT have an Nvidia GPU, run the script with the -w flag
 
-	   ```./install_dependencies.bash -w```
+	     ```./install_dependencies.bash -w```
 
 
 5. Build the Docker image
