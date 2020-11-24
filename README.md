@@ -67,28 +67,30 @@ You will be dropped into a shell as `developer@<container name>`
 7. Keep note of what the name of the container is (should be some hash like 83123446d192), as you will need it later
 
 8. Move into the uuv_ws workspace
-$ cd uuv_ws
-
+```cd uuv_ws```
 
 9. Enable ccache:
-$ echo 'export PATH=/usr/lib/ccache:$PATH' >> ~/.bashrc
-$ source ~/.bashrc
+``` 
+echo 'export PATH=/usr/lib/ccache:$PATH' >> ~/.bashrc
+source ~/.bashrc
+```
 
 
 10. Run the script to install MoveIt! and OMPL
-$ chmod +x install_moveit.bash
-$ ./install_moveit.bash
-
+```
+chmod +x install_moveit.bash
+./install_moveit.bash
+```
 
 11. Add sourcing the setup file to bashrc for convenience.
-$ echo ‘source /home/developer/uuv_ws/devel/setup.bash’ >> ~/.bashrc
+```echo ‘source /home/developer/uuv_ws/devel/setup.bash’ >> ~/.bashrc```
 
 
 12. In a new terminal window, create an image from the new container (that is now updated with MoveIt!’s dependencies 
-$ docker commit -m "Installed MoveIt and OMPL Dependencies" <container_name>  dave_nvidia:v0 
+```docker commit -m "Installed MoveIt and OMPL Dependencies" <container_name>  dave_nvidia:v0 ```
 
 13. Create a new container using our new image
-$ ./run.bash dave_nvidia:v0
+```./run.bash dave_nvidia:v0```
 
 14. Source the catkin setup files so that roslaunch knows where to find your built packages:
 ```source ~/uuv_ws/devel/setup.bash```
