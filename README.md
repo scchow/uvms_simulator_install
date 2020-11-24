@@ -34,29 +34,44 @@ Or install manually by following the instructions below:
 4. Download dependencies
 
 	  - Make the script executable:
+
 	      ```chmod +x install_dependencies.bash ```
+
 	  - If you have an Nvidia GPU, run the script as 
+
 	      ```./install_dependencies.bash```
+
 	     If you do NOT have an Nvidia GPU, run the script with the -w flag
+
 	   ```./install_dependencies.bash -w```
 
 
 5. Build the Docker image
 
 	  - Move to the docker directory inside Project Dave
+
 	       ```cd ~/uuv_ws/src/dave/docker```
+
 	  - Give permissions to execute the bash script
+
 	       ```chmod +x build_with_moveit.bash .```
+
 	  - If you have an Nvidia graphics card, run:
+
 	       ``` ./build_with_moveit.bash .```
+
 	      Otherwise run
+
 	       ```./build_with_moveit.bash -w .```
+
 	       
 6. Drop into a Docker container the newly built image:
 	- If you have an Nvidia GPU, run:
+
 	``` ./run.bash dave_nvidia:latest```
 
 	- Otherwise, run: 
+
 	```./run.bash dave:latest```
 
 You will be dropped into a shell as `developer@<container name>`
@@ -67,6 +82,7 @@ You will be dropped into a shell as `developer@<container name>`
 7. Keep note of what the name of the container is (should be some hash like 83123446d192), as you will need it later
 
 8. Move into the uuv_ws workspace
+
 ```cd uuv_ws```
 
 9. Enable ccache:
@@ -83,19 +99,24 @@ chmod +x install_moveit.bash
 ```
 
 11. Add sourcing the setup file to bashrc for convenience.
+
 ```echo ‘source /home/developer/uuv_ws/devel/setup.bash’ >> ~/.bashrc```
 
 
 12. In a new terminal window, create an image from the new container (that is now updated with MoveIt!’s dependencies 
+
 ```docker commit -m "Installed MoveIt and OMPL Dependencies" <container_name>  dave_nvidia:v0 ```
 
 13. Create a new container using our new image
+
 ```./run.bash dave_nvidia:v0```
 
 14. Source the catkin setup files so that roslaunch knows where to find your built packages:
+
 ```source ~/uuv_ws/devel/setup.bash```
 
 15. To run the demo [MoveIt! Tutorial](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html):
+
 ```roslaunch panda_moveit_config demo.launch rviz_tutorial:=true```
 
 Some Notes on Docker
