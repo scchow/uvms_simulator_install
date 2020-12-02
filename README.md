@@ -65,11 +65,11 @@ Or install manually by following the instructions below:
 6. Drop into a Docker container the newly built image:
 	- If you have an Nvidia GPU, run:
 
-	``` ./run.bash dave_nvidia:latest```
+	``` ./run_custom.bash dave_nvidia:latest```
 
 	- Otherwise, run: 
 
-	```./run.bash dave:latest```
+	```./run_custom.bash dave:latest```
 
 You will be dropped into a shell as `developer@<container name>`
 
@@ -113,7 +113,7 @@ docker commit -m "Installed MoveIt and OMPL Dependencies" <container_name>  dave
 13. Create a new container using our new image
 
 ```
-./run.bash dave_nvidia:v0
+./run_custom.bash dave_nvidia:v0
 ```
 
 14. Source the catkin setup files so that roslaunch knows where to find your built packages:
@@ -166,6 +166,6 @@ You should not need to create new containers unless you are actively installing 
 
 
 
-Note on `run.bash`
+Note on `run_custom.bash`
 ---
-The `run.bash` in this repository mounts the entire `uuv_ws` catkin workspace directory. The `run.bash` in the [main Dave repository](https://github.com/Field-Robotics-Lab/dave/tree/master/docker), only mounts the `uuv_ws/src` directory. Running these scripts will overwrite the original `run.bash` with our `run.bash`.
+The `run_custom.bash` in this repository mounts the entire `uuv_ws` catkin workspace directory. The `run.bash` in the [main Dave repository](https://github.com/Field-Robotics-Lab/dave/tree/master/docker), only mounts the `uuv_ws/src` directory. It also adds certain settings for terminal coloring for vim and tmux. 
