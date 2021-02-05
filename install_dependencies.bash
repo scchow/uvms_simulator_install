@@ -83,7 +83,7 @@ cp $SCRIPTPATH/install_moveit.bash ~/uuv_ws
 # make the build_moveit.bash script executable
 chmod +x build_moveit.bash
 
-# Overwrite the run file to my custom run file that loads the full folder
-cp $SCRIPTPATH/run.bash .
+# Move the custom run file that loads the full folder
+cp $SCRIPTPATH/run_custom.bash .
 
 echo -e "\n Done cloning dependencies. \n"
