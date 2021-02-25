@@ -75,13 +75,13 @@ cd dave/docker
 
 # Copy my custom DockerFile/build files to the docker folder
 cp $SCRIPTPATH/Dockerfile_MoveIt .
-cp $SCRIPTPATH/build_moveit.bash .
+cp $SCRIPTPATH/build_with_moveit.bash .
 
 # Move the MoveIt! install script to an accessible location
 cp $SCRIPTPATH/install_moveit.bash ~/uuv_ws
 
-# make the build_moveit.bash script executable
-chmod +x build_moveit.bash
+# make the build_with_moveit.bash script executable
+chmod +x build_with_moveit.bash
 
 # Move the custom run file that loads the full folder
 cp $SCRIPTPATH/run_custom.bash .
