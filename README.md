@@ -169,3 +169,8 @@ You should not need to create new containers unless you are actively installing 
 Note on `run_custom.bash`
 ---
 The `run_custom.bash` in this repository mounts the entire `uuv_ws` catkin workspace directory. The `run.bash` in the [main Dave repository](https://github.com/Field-Robotics-Lab/dave/tree/master/docker), only mounts the `uuv_ws/src` directory. It also adds certain settings for terminal coloring for vim and tmux. 
+
+Common Issues
+---
+
+
